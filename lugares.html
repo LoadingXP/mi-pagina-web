@@ -39,7 +39,6 @@
             opacity: 1;
         }
 
-        /* NAV */
         nav {
             background: white;
             padding: 10px 5%;
@@ -52,8 +51,16 @@
             z-index: 1000;
         }
 
-        .brand-container { display: flex; align-items: center; text-decoration: none; }
-        .brand-icon { height: 45px; margin-right: 12px; }
+        .brand-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .brand-icon {
+            height: 45px;
+            margin-right: 12px;
+        }
 
         .brand {
             font-family: 'Playfair Display', serif;
@@ -62,9 +69,15 @@
             color: var(--rojo-tradicion);
         }
 
-        .brand span { color: var(--azul-agua); }
+        .brand span {
+            color: var(--azul-agua);
+        }
 
-        .nav-menu { display: flex; list-style: none; gap: 25px; }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
 
         .nav-menu a {
             text-decoration: none;
@@ -74,9 +87,10 @@
             text-transform: uppercase;
         }
 
-        .nav-menu a:hover { color: var(--rojo-tradicion); }
+        .nav-menu a:hover {
+            color: var(--rojo-tradicion);
+        }
 
-        /* HERO INTERNO */
         .hero-internal {
             height: 60vh;
             background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)),
@@ -96,7 +110,6 @@
             font-size: clamp(2.5rem, 6vw, 4.5rem);
         }
 
-        /* CONTENIDO */
         .contenedor {
             max-width: 1100px;
             margin: auto;
@@ -117,31 +130,27 @@
             gap: 30px;
         }
 
-        /* Actualización de la Tarjeta para incluir imagen */
         .card-seccion {
             background: white;
-            /* Padding ajustado: 0 arriba para la imagen, 30px lados y abajo para el texto */
-            padding: 0 0 30px 0; 
+            padding: 0 0 30px 0;
             border-radius: 15px;
             text-align: left;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             transition: 0.4s;
             position: relative;
-            overflow: hidden; /* Importante para que la imagen respete el borde redondeado */
+            overflow: hidden;
             display: flex;
             flex-direction: column;
         }
 
-        /* Estilos para la imagen dentro de la tarjeta */
         .card-image {
             width: 100%;
-            height: 220px; /* Altura fija para uniformidad */
-            object-fit: cover; /* Recorta la imagen para llenar el espacio sin deformarse */
-            border-bottom: 4px solid var(--ocre-tierra); /* Separador visual */
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 4px solid var(--ocre-tierra);
             margin-bottom: 25px;
         }
 
-        /* Contenedor de texto dentro de la tarjeta para aplicar padding */
         .card-content {
             padding: 0 30px;
         }
@@ -171,14 +180,14 @@
             margin-bottom: 15px;
             font-family: 'Playfair Display', serif;
             font-size: 1.6rem;
-            padding: 0 30px; /* Padding directo al título */
+            padding: 0 30px;
         }
 
         .card-seccion p {
             color: var(--texto);
             font-size: 1rem;
             opacity: 0.9;
-            padding: 0 30px; /* Padding directo al párrafo */
+            padding: 0 30px;
         }
 
         footer {
@@ -190,8 +199,13 @@
         }
 
         @media (max-width: 768px) {
-            .nav-menu { display: none; }
-            .card-image { height: 180px; } /* Ajuste de altura en móviles */
+            .nav-menu {
+                display: none;
+            }
+
+            .card-image {
+                height: 180px;
+            }
         }
     </style>
 </head>
@@ -257,13 +271,16 @@
 <script>
 function reveal() {
     let elements = document.querySelectorAll(".reveal");
+
     elements.forEach(el => {
         let top = el.getBoundingClientRect().top;
+
         if (top < window.innerHeight - 100) {
             el.classList.add("active");
         }
     });
 }
+
 window.addEventListener("scroll", reveal);
 window.addEventListener("load", reveal);
 </script>

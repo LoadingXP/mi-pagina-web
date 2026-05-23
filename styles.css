@@ -7,17 +7,16 @@
     --blanco: #FFFFFF;
 }
 
-html { 
-    scroll-behavior: smooth; 
+html {
+    scroll-behavior: smooth;
 }
 
-* { 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* --- Body --- */
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: var(--crema);
@@ -26,7 +25,6 @@ body {
     overflow-x: hidden;
 }
 
-/* --- Animaciones Reveal --- */
 .reveal {
     position: relative;
     transform: translateY(50px);
@@ -39,7 +37,6 @@ body {
     opacity: 1;
 }
 
-/* --- Navegación --- */
 nav {
     background: white;
     padding: 10px 5%;
@@ -53,33 +50,33 @@ nav {
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
-.brand-container { 
-    display: flex; 
-    align-items: center; 
-    text-decoration: none; 
+.brand-container {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
 }
 
-.brand-icon { 
-    height: 45px; 
-    margin-right: 12px; 
+.brand-icon {
+    height: 45px;
+    margin-right: 12px;
 }
 
-.brand { 
-    font-family: 'Playfair Display', serif; 
-    font-size: 1.8rem; 
-    font-weight: 700; 
-    color: var(--rojo-tradicion); 
+.brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--rojo-tradicion);
 }
 
-.brand span { 
-    color: var(--azul-agua); 
-    font-weight: 400; 
+.brand span {
+    color: var(--azul-agua);
+    font-weight: 400;
 }
 
-.nav-menu { 
-    display: flex; 
-    list-style: none; 
-    gap: 25px; 
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 25px;
 }
 
 .nav-menu a {
@@ -91,14 +88,14 @@ nav {
     transition: color 0.3s ease;
 }
 
-.nav-menu a:hover { 
-    color: var(--rojo-tradicion); 
+.nav-menu a:hover {
+    color: var(--rojo-tradicion);
 }
 
-/* --- Hero --- */
 .hero {
     height: 85vh;
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('../IMGS/PresaTemazcal.png'); 
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)),
+                url('../IMGS/PresaTemazcal.png');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -109,35 +106,32 @@ nav {
     text-align: center;
 }
 
-.hero h1 { 
-    font-family: 'Playfair Display', serif; 
-    font-size: clamp(3rem, 8vw, 6rem); 
-    text-shadow: 2px 4px 15px rgba(0,0,0,0.6); 
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    text-shadow: 2px 4px 15px rgba(0,0,0,0.6);
 }
 
-/* --- Contenedor --- */
-.contenedor { 
-    max-width: 1100px; 
-    margin: 0 auto; 
-    padding: 80px 20px; 
+.contenedor {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 20px;
 }
 
-h2 { 
-    font-family: 'Playfair Display', serif; 
-    font-size: 2.5rem; 
-    color: var(--azul-agua); 
-    text-align: center; 
-    margin-bottom: 40px; 
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--azul-agua);
+    text-align: center;
+    margin-bottom: 40px;
 }
 
-/* --- Grid Categorías --- */
 .grid-categorias {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
 }
 
-/* --- Cards --- */
 .card-seccion {
     background: white;
     padding: 40px 30px;
@@ -155,29 +149,27 @@ h2 {
     border-color: var(--rojo-tradicion);
 }
 
-.card-seccion h3 { 
-    color: var(--rojo-tradicion); 
-    margin-bottom: 15px; 
-    font-family: 'Playfair Display', serif; 
+.card-seccion h3 {
+    color: var(--rojo-tradicion);
+    margin-bottom: 15px;
+    font-family: 'Playfair Display', serif;
 }
 
-/* --- Footer --- */
-footer { 
-    background: #111; 
-    color: white; 
-    padding: 60px 5% 20px; 
-    text-align: center; 
+footer {
+    background: #111;
+    color: white;
+    padding: 60px 5% 20px;
+    text-align: center;
 }
 
-.copyright { 
-    opacity: 0.5; 
-    font-size: 0.8rem; 
-    margin-top: 20px; 
+.copyright {
+    opacity: 0.5;
+    font-size: 0.8rem;
+    margin-top: 20px;
 }
 
-/* --- Responsive --- */
-@media (max-width: 768px) { 
-    .nav-menu { 
-        display: none; 
-    } 
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
 }
