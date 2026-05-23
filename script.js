@@ -16,7 +16,7 @@ window.addEventListener("scroll", reveal);
 window.addEventListener("load", reveal);
 
 const logo = document.querySelector('.brand-icon');
-
+ 
 logo.addEventListener('mouseover', () => {
     logo.style.transform = 'scale(1.1) rotate(5deg)';
     logo.style.transition = 'transform 0.3s ease';
