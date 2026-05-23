@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Economía | DescubreTemascal</title>
+    
+    <link rel="icon" type="image/png" href="../IMGS/IconPagina.png">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --rojo-tradicion: #922B21;
+            --azul-agua: #1B4F72;
+            --ocre-tierra: #8E6E3A;
+            --crema: #F4F1EA;
+            --texto: #2C3E50;
+            --blanco: #FFFFFF;
+        }
+
+        html { scroll-behavior: smooth; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--crema);
+            color: var(--texto);
+            line-height: 1.8;
+        }
+
+        .reveal {
+            transform: translateY(50px);
+            opacity: 0;
+            transition: all 1s ease;
+        }
+
+        .reveal.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* NAV */
+        nav {
+            background: white;
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--rojo-tradicion);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .brand-container { display: flex; align-items: center; text-decoration: none; }
+        .brand-icon { height: 45px; margin-right: 12px; }
+
+        .brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--rojo-tradicion);
+        }
+
+        .brand span { color: var(--azul-agua); }
+
+        .nav-menu { display: flex; list-style: none; gap: 25px; }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--texto);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+
+        .nav-menu a:hover { color: var(--rojo-tradicion); }
+
+        /* HERO INTERNO */
+        .hero-internal {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)),
+                        url('../IMGS/EconomiaHero.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-internal h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+        }
+
+        /* CONTENIDO */
+        .contenedor {
+            max-width: 1100px;
+            margin: auto;
+            padding: 60px 20px;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--azul-agua);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .grid-categorias {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        /* Estructura de Tarjeta con Imagen */
+        .card-seccion {
+            background: white;
+            padding: 0 0 30px 0;
+            border-radius: 12px;
+            text-align: left;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: 0.3s ease;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border-bottom: 4px solid var(--azul-agua);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--ocre-tierra);
+            margin-bottom: 20px;
+        }
+
+        .card-seccion:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-bottom: 4px solid var(--rojo-tradicion);
+        }
+
+        .card-seccion h3 {
+            color: var(--rojo-tradicion);
+            margin-bottom: 12px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            padding: 0 25px;
+        }
+
+        .card-seccion p {
+            padding: 0 25px;
+            font-size: 0.95rem;
+        }
+
+        .resumen-eco {
+            background: var(--blanco);
+            padding: 40px;
+            margin-top: 50px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px dashed var(--ocre-tierra);
+        }
+
+        footer {
+            background: #111;
+            color: white;
+            padding: 40px 5% 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu { display: none; }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <a href="../index.html" class="brand-container">
+        <img src="../IMGS/IconPagina.png" class="brand-icon">
+        <div class="brand">Descubre<span>Temascal</span></div>
+    </a>
+
+    <ul class="nav-menu">
+        <li><a href="historia.html">Historia</a></li>
+        <li><a href="lugares.html">Lugares</a></li>
+        <li><a href="cultura.html">Cultura</a></li>
+        <li><a href="economia.html" style="color: var(--rojo-tradicion);">Economía</a></li>
+    </ul>
+</nav>
+
+<header class="hero-internal">
+    <h1 class="reveal">Economía de Temascal</h1>
+</header>
+
+<main class="contenedor">
+    
+    <h2 class="reveal">Sustento y Desarrollo Regional</h2>
+
+    <div class="grid-categorias reveal">
+
+        <div class="card-seccion">
+            <img src="IMGS/Caps Temazcal/Pesca.png" alt="Actividad de Pesca" class="card-image">
+            <h3>Pesca</h3>
+            <p>Es el motor principal de la zona. La captura de mojarra tilapia en la presa surte a mercados locales y nacionales, siendo el sustento de cientos de familias mazatecas.</p>
+        </div>
+
+        <div class="card-seccion">
+            <img src="IMGS/Caps Temazcal/Agricultura.png" alt="Campos de cultivo" class="card-image">
+            <h3>Agricultura</h3>
+            <p>Tierra fértil que produce caña de azúcar, maíz y una gran variedad de frutas tropicales, aprovechando el clima cálido y la abundancia de agua.</p>
+        </div>
+
+        <div class="card-seccion">
+            <img src="IMGS/Caps Temazcal/CFE.jpg"Central Hidroeléctrica" class="card-image">
+            <h3>Energía</h3>
+            <p>Sede de la Central Hidroeléctrica "Miguel Alemán", un pilar estratégico operado por la CFE que genera energía para gran parte del sureste mexicano.</p>
+        </div>
+
+        <div class="card-seccion">
+            <img src="IMGS/Caps Temazcal/Turismo.png" alt="Turismo en la presa" class="card-image">
+            <h3>Turismo</h3>
+            <p>Una industria creciente enfocada en recorridos en lancha por las islas, servicios hoteleros y una oferta gastronómica que deleita a los visitantes.</p>
+        </div>
+
+    </div>
+
+    <div class="resumen-eco reveal">
+        <p><em>Gracias a su ubicación estratégica, Temascal se consolida como un centro económico vital para el municipio de San Miguel Soyaltepec y la Cuenca del Papaloapan.</em></p>
+    </div>
+
+</main>
+
+<footer>
+    <p>© 2026 DescubreTemascal - San Miguel Soyaltepec, Oaxaca.</p>
+</footer>
+
+<script>
+function reveal() {
+    let elements = document.querySelectorAll(".reveal");
+    elements.forEach(el => {
+        let top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+            el.classList.add("active");
+        }
+    });
+}
+window.addEventListener("scroll", reveal);
+window.addEventListener("load", reveal);
+</script>
+
+</body>
+</html>

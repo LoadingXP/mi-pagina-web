@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cultura | DescubreTemascal</title>
+    
+    <link rel="icon" type="image/png" href="../IMGS/IconPagina.png">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --rojo-tradicion: #922B21;
+            --azul-agua: #1B4F72;
+            --ocre-tierra: #8E6E3A;
+            --crema: #F4F1EA;
+            --texto: #2C3E50;
+            --blanco: #FFFFFF;
+        }
+
+        html { scroll-behavior: smooth; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--crema);
+            color: var(--texto);
+            line-height: 1.8;
+        }
+
+        .reveal {
+            transform: translateY(50px);
+            opacity: 0;
+            transition: all 1s ease;
+        }
+
+        .reveal.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* NAV */
+        nav {
+            background: white;
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--rojo-tradicion);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .brand-container { display: flex; align-items: center; text-decoration: none; }
+        .brand-icon { height: 45px; margin-right: 12px; }
+
+        .brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--rojo-tradicion);
+        }
+
+        .brand span { color: var(--azul-agua); }
+
+        .nav-menu { display: flex; list-style: none; gap: 25px; }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--texto);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+
+        .nav-menu a:hover { color: var(--rojo-tradicion); }
+
+        /* HERO INTERNO */
+        .hero-internal {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)),
+                        url('../IMGS/CulturaHero.png'); 
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-internal h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+        }
+
+        /* CONTENIDO */
+        .contenedor {
+            max-width: 1100px;
+            margin: auto;
+            padding: 60px 20px;
+        }
+
+        .intro-text {
+            text-align: center;
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--azul-agua);
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .grid-categorias {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .card-seccion {
+            background: white;
+            padding: 0 0 30px 0;
+            border-radius: 12px;
+            text-align: left;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: 0.4s;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border-bottom: 4px solid var(--ocre-tierra);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--rojo-tradicion);
+            margin-bottom: 20px;
+        }
+
+        .card-seccion:hover {
+            transform: translateY(-10px);
+            border-bottom: 4px solid var(--rojo-tradicion);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .card-seccion h3 {
+            color: var(--rojo-tradicion);
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            padding: 0 25px;
+        }
+
+        .card-seccion p {
+            padding: 0 25px;
+            font-size: 0.95rem;
+            color: var(--texto);
+        }
+
+        .festividades-box {
+            background: var(--azul-agua);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .festividades-box h2 { color: white; margin-top: 0; }
+
+        footer {
+            background: #111;
+            color: white;
+            padding: 40px 5% 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu { display: none; }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <a href="../index.html" class="brand-container">
+        <img src="../IMGS/IconPagina.png" class="brand-icon">
+        <div class="brand">Descubre<span>Temascal</span></div>
+    </a>
+
+    <ul class="nav-menu">
+        <li><a href="historia.html">Historia</a></li>
+        <li><a href="lugares.html">Lugares</a></li>
+        <li><a href="cultura.html" style="color: var(--rojo-tradicion);">Cultura</a></li>
+        <li><a href="economia.html">Economía</a></li>
+    </ul>
+</nav>
+
+<header class="hero-internal">
+    <h1 class="reveal">Cultura y Tradiciones</h1>
+</header>
+
+<main class="contenedor">
+
+    <div class="intro-text reveal">
+        <p>
+            La identidad de Temascal es profundamente <strong>mazateca</strong>. 
+            Aquí se respira el legado de nuestros antepasados a través de la lengua, 
+            la vestimenta ancestral y una conexión espiritual única con la tierra.
+        </p>
+    </div>
+
+    <h2 class="reveal">Gastronomía Típica</h2>
+    <div class="grid-categorias reveal">
+        <div class="card-seccion">
+            <img src="IMGS/Caps Temazcal/caldodepiedra.png" alt="Preparación del Caldo de Piedra" class="card-image">
+            <h3>Caldo de Piedra</h3>
+            <p>Símbolo de unidad y respeto prehispánico. Se cocina mediante la inmersión de piedras del río al rojo vivo directamente en la jícara.</p>
+        </div>
+
+        <div class="card-seccion">
+            <img src="IMGS/Caps Temazcal/Mojarra.png" alt="Mojarra típica de Temascal" class="card-image">
+            <h3>Mojarra</h3>
+            <p>El corazón de nuestra mesa. Capturada en la presa, se disfruta al mojo de ajo, empapelada o en tesmole, garantizando frescura total.</p>
+        </div>
+
+        <div class="card-seccion">
+            <img src="IMGS/Caps Temazcal/Tezmole.png" alt="Tesmole con masa de maíz" class="card-image">
+            <h3>Tesmole</h3>
+            <p>Guiso espeso y reconfortante preparado con masa de maíz y especias locales que capturan el sazón auténtico de la Cuenca.</p>
+        </div>
+    </div>
+
+    <h2 class="reveal">Nuestras Tradiciones</h2>
+    <div class="grid-categorias reveal">
+        <div class="card-seccion">
+            <img src="IMGS/Caps Temazcal/hupy.png" alt="Huipil Mazateco" class="card-image">
+            <h3>Vestimenta Ancestral</h3>
+            <p>El huipil mazateco es una obra de arte tejida a mano, decorada con bordados de aves y flores que cuentan la historia de nuestro pueblo.</p>
+        </div>
+
+        <div class="card-seccion">
+            <img src="IMGS/Caps Temazcal/Lengua.png" alt="Cultura Mazateca" class="card-image">
+            <h3>Lengua Mazateca</h3>
+            <p>El pilar de nuestra identidad. El mazateco (en su variante de Soyaltepec) sigue vivo en nuestras casas y en la música tradicional.</p>
+        </div>
+
+        <div class="card-seccion">
+            <img src="IMGS/Caps Temazcal/Pop.png" alt="Bebida el Popo" class="card-image">
+            <h3>Bebidas Tradicionales</h3>
+            <p>El "Popo" es nuestra bebida ceremonial por excelencia, elaborada a base de cacao y arroz, servida fría y con una espuma abundante.</p>
+        </div>
+    </div>
+
+    <h2 class="reveal">Eventos y Celebraciones</h2>
+    <div class="grid-categorias reveal">
+        <div class="card-seccion">
+            <img src="IMGS/Caps Temazcal/Fiesta San Miguel Temazcal2.jpg" alt="Fiesta de San Miguel Arcángel" class="card-image">
+            <h3>San Miguel Arcángel</h3>
+            <p>Celebrada el 29 de septiembre. Es la festividad más importante, donde se realizan procesiones, danzas tradicionales y ferias populares.</p>
+        </div>
+
+        <div class="card-seccion">
+            <img src="IMGS/Caps Temazcal/Iglesia Temazcal.jpeg" alt="Semana Santa en Temascal" class="card-image">
+            <h3>Semana Santa</h3>
+            <p>Evento de gran relevancia que atrae turismo regional, destacando las procesiones y actividades recreativas en el vaso de la presa.</p>
+        </div>
+
+        <div class="card-seccion">
+            <img src="IMGS/Caps Temazcal/Feria de la mojarra1.jpg" alt="Feria de la Mojarra" class="card-image">
+            <h3>Feria de la Mojarra</h3>
+            <p>Un evento gastronómico y cultural que celebra nuestro principal motor económico, con concursos, música en vivo y degustaciones.</p>
+        </div>
+    </div>
+
+    <div class="festividades-box reveal">
+        <h2>Identidad Soyaltepecana</h2>
+        <p>
+            En Temascal, cada celebración es un puente entre el pasado y el presente. La música, 
+            la danza y la fe se unen para mantener viva nuestra herencia cultural mazateca 
+            frente a la majestuosidad de nuestra presa.
+        </p>
+    </div>
+
+</main>
+
+<footer>
+    <p>© 2026 DescubreTemascal - San Miguel Soyaltepec, Oaxaca.</p>
+</footer>
+
+<script>
+function reveal() {
+    let elements = document.querySelectorAll(".reveal");
+    elements.forEach(el => {
+        let top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+            el.classList.add("active");
+        }
+    });
+}
+window.addEventListener("scroll", reveal);
+window.addEventListener("load", reveal);
+</script>
+
+</body>
+</html>

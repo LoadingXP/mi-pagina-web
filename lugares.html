@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lugares | DescubreTemascal</title>
+    
+    <link rel="icon" type="image/png" href="../IMGS/IconPagina.png">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --rojo-tradicion: #922B21;
+            --azul-agua: #1B4F72;
+            --ocre-tierra: #8E6E3A;
+            --crema: #F4F1EA;
+            --texto: #2C3E50;
+            --blanco: #FFFFFF;
+        }
+
+        html { scroll-behavior: smooth; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--crema);
+            color: var(--texto);
+            line-height: 1.8;
+        }
+
+        .reveal {
+            transform: translateY(50px);
+            opacity: 0;
+            transition: all 1s ease;
+        }
+
+        .reveal.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* NAV */
+        nav {
+            background: white;
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--rojo-tradicion);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .brand-container { display: flex; align-items: center; text-decoration: none; }
+        .brand-icon { height: 45px; margin-right: 12px; }
+
+        .brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--rojo-tradicion);
+        }
+
+        .brand span { color: var(--azul-agua); }
+
+        .nav-menu { display: flex; list-style: none; gap: 25px; }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--texto);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+
+        .nav-menu a:hover { color: var(--rojo-tradicion); }
+
+        /* HERO INTERNO */
+        .hero-internal {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)),
+                        url('../IMGS/PresaTemazcal.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-internal h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+        }
+
+        /* CONTENIDO */
+        .contenedor {
+            max-width: 1100px;
+            margin: auto;
+            padding: 60px 20px;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--azul-agua);
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .grid-lugares {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        /* Actualización de la Tarjeta para incluir imagen */
+        .card-seccion {
+            background: white;
+            /* Padding ajustado: 0 arriba para la imagen, 30px lados y abajo para el texto */
+            padding: 0 0 30px 0; 
+            border-radius: 15px;
+            text-align: left;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden; /* Importante para que la imagen respete el borde redondeado */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Estilos para la imagen dentro de la tarjeta */
+        .card-image {
+            width: 100%;
+            height: 220px; /* Altura fija para uniformidad */
+            object-fit: cover; /* Recorta la imagen para llenar el espacio sin deformarse */
+            border-bottom: 4px solid var(--ocre-tierra); /* Separador visual */
+            margin-bottom: 25px;
+        }
+
+        /* Contenedor de texto dentro de la tarjeta para aplicar padding */
+        .card-content {
+            padding: 0 30px;
+        }
+
+        .card-seccion::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--azul-agua);
+            transition: 0.3s;
+        }
+
+        .card-seccion:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .card-seccion:hover::after {
+            background: var(--rojo-tradicion);
+        }
+
+        .card-seccion h3 {
+            color: var(--azul-agua);
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            padding: 0 30px; /* Padding directo al título */
+        }
+
+        .card-seccion p {
+            color: var(--texto);
+            font-size: 1rem;
+            opacity: 0.9;
+            padding: 0 30px; /* Padding directo al párrafo */
+        }
+
+        footer {
+            background: #111;
+            color: white;
+            padding: 40px 5% 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu { display: none; }
+            .card-image { height: 180px; } /* Ajuste de altura en móviles */
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <a href="../index.html" class="brand-container">
+        <img src="../IMGS/IconPagina.png" class="brand-icon">
+        <div class="brand">Descubre<span>Temascal</span></div>
+    </a>
+
+    <ul class="nav-menu">
+        <li><a href="historia.html">Historia</a></li>
+        <li><a href="lugares.html" style="color: var(--rojo-tradicion);">Lugares</a></li>
+        <li><a href="cultura.html">Cultura</a></li>
+        <li><a href="economia.html">Economía</a></li>
+    </ul>
+</nav>
+
+<header class="hero-internal">
+    <h1 class="reveal">Lugares Emblemáticos</h1>
+</header>
+
+<main class="contenedor">
+
+    <h2 class="reveal">Principales Sitios de Interés</h2>
+
+    <div class="grid-lugares reveal">
+
+        <div class="card-seccion">
+            <img src="IMGS/Caps Temazcal/Foto3.jpg" alt="Vista de la Presa Miguel Alemán" class="card-image">
+            <h3>Presa Miguel Alemán</h3>
+            <p>Inaugurada en la década de los 50, es una de las obras de ingeniería hidráulica más imponentes de México, creando un espejo de agua que define nuestra vida diaria.</p>
+        </div>
+
+        <div class="card-seccion">
+            <img src="IMGS/Caps Temazcal/sol.png" alt="Islas en el embalse de Temascal" class="card-image">
+            <h3>Islas del Embalse</h3>
+            <p>Explora formaciones únicas como la Isla de Soyaltepec, donde descansan los restos del antiguo pueblo, y diversos islotes que ofrecen refugio a aves migratorias.</p>
+        </div>
+
+        <div class="card-seccion">
+            <img src="IMGS/Caps Temazcal/Foto4.jpg" alt="La Cortina de la Presa" class="card-image">
+            <h3>La Cortina</h3>
+            <p>El punto de control de la presa que ofrece vistas panorámicas inigualables, donde se puede apreciar la magnitud de la cuenca y la fuerza del agua.</p>
+        </div>
+
+        <div class="card-seccion">
+            <img src="IMGS/Caps Temazcal/Naturaleza.png" alt="Naturaleza y Selva Mazateca" class="card-image">
+            <h3>Naturaleza y Selva</h3>
+            <p>Rodeando las aguas, la selva alta perennifolia alberga una biodiversidad rica, desde orquídeas silvestres hasta fauna endémica de la región mazateca.</p>
+        </div>
+
+    </div>
+
+</main>
+
+<footer>
+    <p>© 2026 DescubreTemascal - San Miguel Soyaltepec, Oaxaca.</p>
+</footer>
+
+<script>
+function reveal() {
+    let elements = document.querySelectorAll(".reveal");
+    elements.forEach(el => {
+        let top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+            el.classList.add("active");
+        }
+    });
+}
+window.addEventListener("scroll", reveal);
+window.addEventListener("load", reveal);
+</script>
+
+</body>
+</html>

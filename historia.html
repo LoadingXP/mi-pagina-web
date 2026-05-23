@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia | DescubreTemascal</title>
+    
+    <link rel="icon" type="image/png" href="../IMGS/IconPagina.png">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --rojo-tradicion: #922B21;
+            --azul-agua: #1B4F72;
+            --ocre-tierra: #8E6E3A;
+            --crema: #F4F1EA;
+            --texto: #2C3E50;
+            --blanco: #FFFFFF;
+        }
+
+        html { scroll-behavior: smooth; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--crema);
+            color: var(--texto);
+            line-height: 1.8;
+        }
+
+        .reveal {
+            transform: translateY(50px);
+            opacity: 0;
+            transition: all 1s ease;
+        }
+
+        .reveal.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* NAV */
+        nav {
+            background: white;
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--rojo-tradicion);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .brand-container { display: flex; align-items: center; text-decoration: none; }
+        .brand-icon { height: 45px; margin-right: 12px; }
+
+        .brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--rojo-tradicion);
+        }
+
+        .brand span { color: var(--azul-agua); }
+
+        .nav-menu { display: flex; list-style: none; gap: 25px; }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--texto);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+
+        .nav-menu a:hover { color: var(--rojo-tradicion); }
+
+        /* HERO HISTORIA */
+        .hero-internal {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)),
+                        url('../IMGS/HistoriaHero.png'); 
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-internal h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+        }
+
+        /* CONTENIDO */
+        .contenedor {
+            max-width: 1000px;
+            margin: auto;
+            padding: 80px 20px;
+        }
+
+        .historia-flex {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .historia-flex:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .historia-texto {
+            flex: 1;
+        }
+
+        .historia-img-container {
+            flex: 1;
+        }
+
+        .historia-img-container img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 10px 10px 0 var(--ocre-tierra);
+            border: 1px solid #ddd;
+        }
+
+        .historia-seccion h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--azul-agua);
+            margin-bottom: 20px;
+            border-left: 4px solid var(--rojo-tradicion);
+            padding-left: 15px;
+        }
+
+        .historia-seccion p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+
+        .highlight-box {
+            background: var(--blanco);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-bottom: 3px solid var(--ocre-tierra);
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        footer {
+            background: #111;
+            color: white;
+            padding: 40px 5% 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu { display: none; }
+            .historia-flex, .historia-flex:nth-child(even) {
+                flex-direction: column;
+            }
+            .historia-img-container {
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <a href="../index.html" class="brand-container">
+        <img src="../IMGS/IconPagina.png" class="brand-icon">
+        <div class="brand">Descubre<span>Temascal</span></div>
+    </a>
+
+    <ul class="nav-menu">
+        <li><a href="historia.html" style="color: var(--rojo-tradicion);">Historia</a></li>
+        <li><a href="lugares.html">Lugares</a></li>
+        <li><a href="cultura.html">Cultura</a></li>
+        <li><a href="economia.html">Economía</a></li>
+    </ul>
+</nav>
+
+<header class="hero-internal">
+    <h1 class="reveal">Nuestra Historia</h1>
+</header>
+
+<main class="contenedor">
+
+    <section class="historia-flex reveal">
+        <div class="historia-texto historia-seccion">
+            <h2>Raíces Ancestrales</h2>
+            <p>
+                El nombre Temascal proviene del náhuatl <strong>temazcalli</strong>, que significa <em>“casa de baño de vapor”</em>. 
+                Esta región formó parte integral del antiguo señorío de Soyaltepec, de profundo origen mazateco. Por siglos, estas tierras fueron hogar de comunidades que vivían en armonía con la selva y el agua.
+            </p>
+        </div>
+        <div class="historia-img-container">
+            <img src="IMGS/Caps Temazcal/Maza.png" alt="Representación de raíces mazatecas">
+        </div>
+    </section>
+
+    <div class="highlight-box reveal">
+        <p><strong>Dato Histórico:</strong> El antiguo San Miguel Soyaltepec se ubicaba en lo que hoy es el fondo de la presa. Su reubicación marcó el inicio de una nueva era para nuestro pueblo.</p>
+    </div>
+
+    <section class="historia-flex reveal">
+        <div class="historia-texto historia-seccion">
+            <h2>La Gran Transformación</h2>
+            <p>
+                En el siglo XX, el paisaje cambió para siempre. La construcción de la <strong>Presa Miguel Alemán (1949–1955)</strong> inundó los valles fértiles para domar las crecidas del río y generar energía hidroeléctrica.
+            </p>
+            <p>
+                Este suceso implicó el desplazamiento de miles de habitantes originarios, quienes con resiliencia fundaron el nuevo Temascal, convirtiéndolo en el corazón administrativo de San Miguel Soyaltepec.
+            </p>
+        </div>
+        <div class="historia-img-container">
+            <img src="IMGS/Caps Temazcal/PresaCo.png" alt="Construcción histórica de la Presa Miguel Alemán">
+        </div>
+    </section>
+
+    <section class="historia-flex reveal">
+        <div class="historia-texto historia-seccion">
+            <h2>El Temascal Moderno</h2>
+            <p>
+                Hoy, Temascal es un centro estratégico de la Cuenca del Papaloapan. La pesca industrial, la energía limpia y el turismo definen nuestra identidad actual. Somos un pueblo que guarda su memoria bajo el agua, pero camina con paso firme hacia el futuro.
+            </p>
+        </div>
+        <div class="historia-img-container">
+            <img src="IMGS/Caps Temazcal/Hoy.png" alt="Vista panorámica de Temascal actual">
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <p>© 2026 DescubreTemascal - San Miguel Soyaltepec, Oaxaca.</p>
+</footer>
+
+<script>
+function reveal() {
+    let elements = document.querySelectorAll(".reveal");
+    elements.forEach(el => {
+        let top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+            el.classList.add("active");
+        }
+    });
+}
+window.addEventListener("scroll", reveal);
+window.addEventListener("load", reveal);
+</script>
+
+</body>
+</html>

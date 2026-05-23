@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DescubreTemascal | Memoria Viva de la Cuenca</title>
+    
+    <link rel="icon" type="image/png" href="IMGS/IconPagina.png">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --rojo-tradicion: #922B21;
+            --azul-agua: #1B4F72;
+            --ocre-tierra: #8E6E3A;
+            --crema: #F4F1EA;
+            --texto: #2C3E50;
+            --blanco: #FFFFFF;
+        }
+
+        html { scroll-behavior: smooth; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--crema);
+            color: var(--texto);
+            line-height: 1.8;
+        }
+
+        .reveal {
+            transform: translateY(50px);
+            opacity: 0;
+            transition: all 1s ease;
+        }
+
+        .reveal.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* NAV */
+        nav {
+            background: white;
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--rojo-tradicion);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .brand-container { display: flex; align-items: center; text-decoration: none; }
+        .brand-icon { height: 45px; margin-right: 12px; }
+
+        .brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--rojo-tradicion);
+        }
+
+        .brand span { color: var(--azul-agua); }
+
+        .nav-menu { display: flex; list-style: none; gap: 25px; }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--texto);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+
+        .nav-menu a:hover { color: var(--rojo-tradicion); }
+
+        /* HERO */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)),
+                        url('IMGS/PresaTemazcal.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+        }
+
+        .hero p {
+            margin-top: 10px;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* CONTENIDO */
+        .contenedor {
+            max-width: 1100px;
+            margin: auto;
+            padding: 80px 20px;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--azul-agua);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .grid-categorias {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .card-seccion {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--texto);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+
+        .card-seccion:hover {
+            transform: translateY(-10px) scale(1.02);
+            border: 1px solid var(--rojo-tradicion);
+        }
+
+        .card-seccion h3 {
+            color: var(--rojo-tradicion);
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 18px;
+            background: var(--rojo-tradicion);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* MAPA SECCIÓN */
+        .mapa-seccion {
+            width: 100%;
+            padding: 60px 0;
+            background: #fff;
+        }
+
+        .mapa-contenedor {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .google-map {
+            width: 100%;
+            height: 450px;
+            border: 0;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            background: #111;
+            color: white;
+            padding: 60px 5% 20px;
+            text-align: center;
+        }
+
+        .copyright {
+            opacity: 0.5;
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu { display: none; }
+            .google-map { height: 300px; }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <a href="index.html" class="brand-container">
+        <img src="IMGS/IconPagina.png" class="brand-icon">
+        <div class="brand">Descubre<span>Temascal</span></div>
+    </a>
+
+    <ul class="nav-menu">
+        <li><a href="historia.html">Historia</a></li>
+        <li><a href="lugares.html">Lugares</a></li>
+        <li><a href="cultura.html">Cultura</a></li>
+        <li><a href="economia.html">Economía</a></li>
+    </ul>
+</nav>
+
+<header class="hero">
+    <h1 class="reveal">Temascal</h1>
+    <p class="reveal">Tierra de agua, cultura y resiliencia</p>
+</header>
+
+<main class="contenedor">
+    <h2 class="reveal">Explora por Categorías</h2>
+
+    <div class="grid-categorias reveal">
+        <a href="historia.html" class="card-seccion">
+            <h3>Historia</h3>
+            <p>Conoce el origen mazateco y la transformación tras la presa.</p>
+            <span class="btn">Explorar</span>
+        </a>
+
+        <a href="lugares.html" class="card-seccion">
+            <h3>Lugares</h3>
+            <p>Descubre paisajes, islas y la gran presa.</p>
+            <span class="btn">Explorar</span>
+        </a>
+
+        <a href="cultura.html" class="card-seccion">
+            <h3>Cultura</h3>
+            <p>Tradiciones, gastronomía y festividades.</p>
+            <span class="btn">Explorar</span>
+        </a>
+
+        <a href="economia.html" class="card-seccion">
+            <h3>Economía</h3>
+            <p>Pesca, agricultura y desarrollo regional.</p>
+            <span class="btn">Explorar</span>
+        </a>
+    </div>
+</main>
+
+<section class="mapa-seccion reveal">
+    <div class="mapa-contenedor">
+        <h2>Ubícanos en el Corazón de la Cuenca</h2>
+        <iframe 
+            class="google-map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15124.975037283732!2d-96.41165445!3d18.38171125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85c3e7275817c763%3A0x8898952467d0cfc4!2sTemascal%2C%20Oax.!5e0!3m2!1ses-419!2smx!4v1700000000000!5m2!1ses-419!2smx" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 DescubreTemascal - San Miguel Soyaltepec, Oaxaca.</p>
+    <p class="copyright">Memoria Viva de la Cuenca del Papaloapan</p>
+</footer>
+
+<script>
+function reveal() {
+    let elements = document.querySelectorAll(".reveal");
+    elements.forEach(el => {
+        let top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+            el.classList.add("active");
+        }
+    });
+}
+window.addEventListener("scroll", reveal);
+window.addEventListener("load", reveal);
+</script>
+
+</body>
+</html>
